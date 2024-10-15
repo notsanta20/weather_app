@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title> 
+    <link rel="stylesheet" href="./output.css">
+  <body>
+    <div class="h-screen flex justify-center items-center ">
+      <main class="h-4/5 w-1/2 p-5 rounded-2xl flex flex-col gap-10">
+          <div class="container-1 flex items-center">
+            <div class="current-place-container flex flex-col gap-2 flex-1">
+              <div class="city text-4xl font-black">CHENNAI</div>
+              <div class="current-date text-l">14 SEP, MONDAY</div>
+            </div>
+            <img src="./assets/icons/celsius.svg" alt="celsius icon" class="temp-icon">
+          </div>
+          <div class="container-2 flex items-center">
+            <div class="current-temp-container flex flex-col flex-1">
+              <div class="current-temp text-8xl font-black">26.2°</div>
+              <div class="current-temp-text text-2xl">Slight Rain</div>
+            </div>
+              <img src="./assets/icons/thunderstorms-day-rain.svg" alt="thunderstorm" class="current-temp-icon">
+          </div>
+          <div class="container-3 rounded-xl flex justify-around items-center">
+            <div class="wind-card flex flex-col items-center p-5 text-l">
+              <img src="./assets/icons/windsock.svg" alt="Wind">
+              <div class="wind-text1">4 Km/h</div>
+              <div class="wind-text2">Wind</div>
+            </div>
+            <div class="humidity-card flex flex-col items-center p-5 text-l">
+              <img src="./assets/icons/humidity.svg" alt="Humidity">
+              <div class="humidity-text1">92%</div>
+              <div class="humidity-text2">Humidity</div>
+            </div>
+            <div class="rain-card flex flex-col items-center p-5 text-l">
+              <img src="./assets/icons/rain.svg" alt="Rain">
+              <div class="rain-text1">0.5mm</div>
+              <div class="rain-text2">Rain</div>
+            </div>
+          </div>
+          <div class="container-4 flex flex-col gap-7 mt-5">
+            <div class="days-container flex gap-5 text-xl">
+              <div class="today">Next Hours</div>
+              <div class="this-week">This Week</div>
+            </div>
+            <div class="day-card-container rounded-xl flex justify-around p-5">
+              <div class="day-card flex flex-col items-center">
+                <div>12 AM</div>
+                <img src="./assets/icons/thunderstorms-night-rain.svg" alt="thunderstorm">
+                <div>26°</div>
+              </div>
+              <div class="day-card flex flex-col items-center">
+                <div>12 AM</div>
+                <img src="./assets/icons/thunderstorms-night-rain.svg" alt="thunderstorm">
+                <div>26°</div>
+              </div> 
+              <div class="day-card flex flex-col items-center">
+                <div>12 AM</div>
+                <img src="./assets/icons/thunderstorms-night-rain.svg" alt="thunderstorm">
+                <div>26°</div>
+              </div> 
+              <div class="day-card flex flex-col items-center">
+                <div>12 AM</div>
+                <img src="./assets/icons/thunderstorms-night-rain.svg" alt="thunderstorm">
+                <div>26°</div>
+              </div> 
+              <div class="day-card flex flex-col items-center">
+                <div>12 AM</div>
+                <img src="./assets/icons/thunderstorms-night-rain.svg" alt="thunderstorm">
+                <div>26°</div>
+              </div>          
+            </div>
+          </div>
+      </main>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
+
+
