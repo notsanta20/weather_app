@@ -35,6 +35,11 @@ img{
   height: auto;
 }
 
+.search{
+  width: 40px;
+  height: auto;
+}
+
 .current-date,
 .current-temp-text,
 .this-week{

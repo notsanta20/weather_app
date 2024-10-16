@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title> 
-    <link rel="stylesheet" href="./output.css">
   <body>
     <div class="h-screen flex justify-center items-center ">
       <main class="h-4/5 w-1/2 p-5 rounded-2xl flex flex-col gap-10">
           <div class="container-1 flex items-center">
             <div class="current-place-container flex flex-col gap-2 flex-1">
-              <div class="city text-4xl font-black">CHENNAI</div>
+              <div class="city-grp flex gap-5">
+                <span class="city text-4xl font-black">CHENNAI</span>
+                <img src="./assets/icons/search-outline.svg" alt="search city" class="search">
+              </div>
               <div class="current-date text-l">14 SEP, MONDAY</div>
             </div>
             <img src="./assets/icons/celsius.svg" alt="celsius icon" class="temp-icon">
@@ -74,8 +76,6 @@
           </div>
       </main>
     </div>
-
-    <script src="./index.js"></script>
   </body>
 </html>
 
