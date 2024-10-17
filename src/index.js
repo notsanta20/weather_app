@@ -1,5 +1,5 @@
 import "./output.css"
-import { fetchData,covertCity } from "./modules/fetch_data.js";
+import { fetchData,covertCity,updateDate,updateWeatherText,updateWHR } from "./modules/fetch_data.js";
 
 let cityName = `chennai`;
 const elements = {
@@ -7,6 +7,9 @@ const elements = {
     currentDate: document.querySelector(`.current-date`),
     currentTemp: document.querySelector(`.current-temp`),
     currentTempText: document.querySelector(`.current-temp-text`),
+    wind: document.querySelector(`.wind-text1`),
+    humidity: document.querySelector(`.humidity-text1`),
+    rain: document.querySelector(`.rain-text1`)
 }
 
 function updateDom(weather,city){
@@ -16,10 +19,12 @@ function updateDom(weather,city){
 
 
 
-async function getData() {
-    const data = await covertCity(cityName);
-    const weather = await fetchData(data.latitude,data.longitude);
-    updateDom(weather,data);
+async function getData(cityName) {
+        const cityLatLon = await covertCity(cityName);
+        const fullWeather = await fetchData(cityLatLon.latitude,cityLatLon.longitude);
+        updateDom(fullWeather,cityLatLon);
+        updateWeatherText(fullWeather,elements);
+        updateWHR(fullWeather,elements);
 }  
 
 
@@ -29,7 +34,10 @@ searchBtn.addEventListener(`click`, ()=>{
     const input = prompt(`Enter a city name`);
     cityName = input.toLowerCase();
     getData(cityName);
-})
+});
+
+updateDate(elements);
+// getData(`chennai`);
 
 // currentData{
 // is_day: 0,
