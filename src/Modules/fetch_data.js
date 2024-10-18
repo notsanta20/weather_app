@@ -14,7 +14,7 @@ const fetchData = async function(lat,lon){
 }
 
 //get Latitude and Longitude of a city
-const covertCity = async function(cityName){
+const convertCity = async function(cityName){
     try {
         const config = {headers:{ 'x-api-key': '3PkatoaXRFVsNBlIIy8qSA==oBlz0frN5OttAIKr'}};
         const response = await axios(`https://api.api-ninjas.com/v1/geocoding?city=${cityName}`, config);
@@ -25,29 +25,34 @@ const covertCity = async function(cityName){
     }
 }
 
+//update City Name and Current Temp
+function updateCityTemp(elements,city,weather,scale){
+    elements.city.textContent = city.toUpperCase();
+
+    //check and convert C to F
+    if(!scale){
+        let fahrenheit = weather * 1.8 + 32;
+        elements.currentTemp.textContent = `${fahrenheit}°`;
+    }
+    else{
+        elements.currentTemp.textContent = `${weather}°`;
+    }
+}
+
 //update date and time in DOM
 const updateDate = function(element){
     const date = new Date();
     const month = [`JAN`,`FEB`,`MAR`,`APR`,`MAY`,`JUN`,`JUL`,`AUG`,`SEP`,`OCT`,`NOV`,`DEC` ];
     const days = [`SUNDAY`,`MONDAY`,`TUESDAY`,`WEDNESDAY`,`THURSDAY`,`FRIDAY`,`SATURDAY`];
     
-    element.currentDate.textContent = `${date.getDate()} ${month[date.getMonth()]}, ${days[date.getDay()]}`;
-
-    let hours = date.getHours();
-    let format = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-
-    const test = document.querySelector(`.test`)
-    test.textContent = `${hours} ${format}`
-    
+    element.textContent = `${date.getDate()} ${month[date.getMonth()]}, ${days[date.getDay()]}`;   
 }
 
 //update Weather text in DOM
 const updateWeatherText = function(code,element){
     const weatherCodes = {
         0: `Clear`,
-        1: `Clear,`,
+        1: `Clear`,
         2: `partly Cloudy`,
         3: `Overcast`,
         45: `Fog`,
@@ -79,11 +84,6 @@ const updateWeatherText = function(code,element){
     element.currentTempText.textContent = weatherCodes[num];
 }
 
-//update weather icons
-const updateWeatherIcon = function(){
-    
-}
-
 //update Wind, Humidity and Rain data in DOM
 const updateWHR = function(weather,elements){
     elements.wind.textContent = `${weather.currentData.wind_speed_10m} Km/h`;
@@ -91,5 +91,13 @@ const updateWHR = function(weather,elements){
     elements.rain.textContent = `${weather.currentData.precipitation}mm`;
 }
 
+//update Weather Icon
+const updateIcon = function(){
 
-export {fetchData,covertCity,updateDate,updateWeatherText,updateWHR}
+}
+
+
+
+
+
+export {fetchData,convertCity,updateCityTemp,updateDate,updateWeatherText,updateWHR,updateIcon}

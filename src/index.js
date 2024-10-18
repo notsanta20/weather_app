@@ -1,7 +1,11 @@
 import "./output.css"
-import { fetchData,covertCity,updateDate,updateWeatherText,updateWHR } from "./modules/fetch_data.js";
+import { fetchData,convertCity,updateCityTemp,updateDate,updateWeatherText,updateWHR,updateIcon} from "./modules/fetch_data.js";
 
 let cityName = `chennai`;
+let isCelsius = true;
+let currentTemp = ``;
+const searchBtn = document.querySelector(`.search`);
+const scaleBtn = document.querySelector(`.temp-icon`);
 const elements = {
     city: document.querySelector(`.city`),
     currentDate: document.querySelector(`.current-date`),
@@ -12,38 +16,43 @@ const elements = {
     rain: document.querySelector(`.rain-text1`)
 }
 
-function updateDom(weather,city){
-    elements.city.textContent = city.name.toUpperCase();
-    elements.currentTemp.textContent = `${weather.currentData.temperature_2m}°`;
-}
-
-
-
+//get City and weather data
 async function getData(cityName) {
-        const cityLatLon = await covertCity(cityName);
-        const fullWeather = await fetchData(cityLatLon.latitude,cityLatLon.longitude);
-        updateDom(fullWeather,cityLatLon);
-        updateWeatherText(fullWeather,elements);
-        updateWHR(fullWeather,elements);
-}  
+    const cityLatLon = await convertCity(cityName);
+    const fullWeather = await fetchData(cityLatLon.latitude,cityLatLon.longitude);
+    currentTemp = fullWeather.currentData.temperature_2m;
+    updateCityTemp(elements,cityName,currentTemp,isCelsius);
+    updateWeatherText(fullWeather,elements);
+    updateWHR(fullWeather,elements);
+} 
 
-
-const searchBtn = document.querySelector(`.search`);
-
+//Onclick search city
 searchBtn.addEventListener(`click`, ()=>{
-    const input = prompt(`Enter a city name`);
-    cityName = input.toLowerCase();
-    getData(cityName);
+    let input = prompt(`Enter a city name`);
+    if(input !== `` && input !== null){
+        if(input.length > 2){
+            cityName = input.toLowerCase();
+            getData(cityName);
+        }
+        else{
+            alert(`City name need to be 3 or more characters`);
+        }
+    }
 });
 
-updateDate(elements);
-// getData(`chennai`);
+//Onclick change C to F
+scaleBtn.addEventListener(`click`, ()=>{
+    if(isCelsius){
+        isCelsius = false;
+        scaleBtn.src = "../src/assets/icons/fahrenheit.svg";
+    }
+    else{
+        isCelsius = true;
+        scaleBtn.src = "../src/assets/icons/celsius.svg";
+    }
+    updateCityTemp(elements,cityName,currentTemp,isCelsius);
+})
 
-// currentData{
-// is_day: 0,
-// precipitation: 0,
-// relative_humidity_2m: 94,
-// temperature_2m: 19.3,
-// weather_code: 1,
-// wind_speed_10m: 5.1,
-// }
+updateDate(elements.currentDate);
+getData(`chennai`);
+
