@@ -28,6 +28,7 @@ body {
 
 main{
   background-color: var(--darkGray);
+  height: 500px;
 }
 
 img{
@@ -66,4 +67,12 @@ img{
   height: auto;
 }
 
+.temp-icon{
+  width: 40px;
+  height: auto;
+}
 
+.temp-icon:hover,
+.search:hover{
+  cursor: pointer;
+}

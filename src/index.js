@@ -11,6 +11,7 @@ const elements = {
     currentDate: document.querySelector(`.current-date`),
     currentTemp: document.querySelector(`.current-temp`),
     currentTempText: document.querySelector(`.current-temp-text`),
+    currentTempIcon: document.querySelector(`.current-temp-icon`),
     wind: document.querySelector(`.wind-text1`),
     humidity: document.querySelector(`.humidity-text1`),
     rain: document.querySelector(`.rain-text1`)
@@ -24,6 +25,7 @@ async function getData(cityName) {
     updateCityTemp(elements,cityName,currentTemp,isCelsius);
     updateWeatherText(fullWeather,elements);
     updateWHR(fullWeather,elements);
+    updateIcon(fullWeather,elements.currentTempIcon);
 } 
 
 //Onclick search city
