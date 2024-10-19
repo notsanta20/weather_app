@@ -677,6 +677,7 @@ body {
 
 main{
   background-color: var(--darkGray);
+  position: relative;
 }
 
 .current-date,
@@ -695,7 +696,25 @@ main{
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+.error{
+  background-color: var(--darkGray);
+  color: var(--gray);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  position: absolute;
+  bottom: -15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  visibility: hidden;
+}
+
+@media (min-width: 768px){
+  .error{
+    font-size: 1.2rem;
+    padding: 10px 40px;
+  }
+
   .md\:h-\[500px\] {
     height: 500px;
   }

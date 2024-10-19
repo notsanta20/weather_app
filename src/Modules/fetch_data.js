@@ -9,7 +9,7 @@ const fetchData = async function(lat,lon){
         const dailyData = response.data.daily;
         return {currentData, hourlyData, dailyData};
     } catch (error) {
-        alert(`Error, Try again`);
+        errorPopup();
     }
 }
 
@@ -21,7 +21,7 @@ const convertCity = async function(cityName){
         const city = response.data[0];
         return city;
     } catch (error) {
-        alert(`Error, Try again`);
+        errorPopup();
     }
 }
 
@@ -136,5 +136,13 @@ const updateIcon = function(code,element){
     }
 }
 
+const errorPopup = function(){
+    const error = document.querySelector(`.error`);
+    error.style.visibility = `visible`;
+    setTimeout(()=>{
+        error.style.visibility = `hidden`;
+    },2000);
+}
 
-export {fetchData,convertCity,updateCityTemp,updateDate,updateWeatherText,updateWHR,updateIcon}
+
+export {fetchData,convertCity,updateCityTemp,updateDate,updateWeatherText,updateWHR,updateIcon,errorPopup}

@@ -1,5 +1,5 @@
 import "./output.css"
-import { fetchData,convertCity,updateCityTemp,updateDate,updateWeatherText,updateWHR,updateIcon} from "./modules/fetch_data.js";
+import { fetchData,convertCity,updateCityTemp,updateDate,updateWeatherText,updateWHR,updateIcon,errorPopup} from "./modules/fetch_data.js";
 
 let cityName = `chennai`;
 let isCelsius = true;
@@ -19,13 +19,17 @@ const elements = {
 
 //get City and weather data
 async function getData(cityName) {
-    const cityLatLon = await convertCity(cityName);
-    const fullWeather = await fetchData(cityLatLon.latitude,cityLatLon.longitude);
-    currentTemp = fullWeather.currentData.temperature_2m;
-    updateCityTemp(elements,cityName,currentTemp,isCelsius);
-    updateWeatherText(fullWeather,elements);
-    updateWHR(fullWeather,elements);
-    updateIcon(fullWeather,elements.currentTempIcon);
+    try {
+        const cityLatLon = await convertCity(cityName);
+        const fullWeather = await fetchData(cityLatLon.latitude,cityLatLon.longitude);
+        currentTemp = fullWeather.currentData.temperature_2m;
+        updateCityTemp(elements,cityName,currentTemp,isCelsius);
+        updateWeatherText(fullWeather,elements);
+        updateWHR(fullWeather,elements);
+        updateIcon(fullWeather,elements.currentTempIcon);
+    } catch (error) {
+        errorPopup();
+    }
 } 
 
 //Onclick search city
@@ -56,5 +60,4 @@ scaleBtn.addEventListener(`click`, ()=>{
 })
 
 updateDate(elements.currentDate);
-// getData(`chennai`);
-
+getData(`chennai`);
