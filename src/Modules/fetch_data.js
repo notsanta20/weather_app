@@ -98,41 +98,41 @@ const updateIcon = function(code,element){
 
     if(num == `0` || num == `1`){
         if(isDay){
-            element.src = "../src/assets/icons/clear-day.svg"
+            element.src = "./assets/icons/clear-day.svg"
         }
         else{
-            element.src = "../src/assets/icons/clear-night.svg"
+            element.src = "./assets/icons/clear-night.svg"
         }
     }
     else if(num == `2`){
-        element.src = "../src/assets/icons/partly-cloudy.svg"
+        element.src = "./assets/icons/partly-cloudy.svg"
     }
     else if(num == `3`){
-        element.src = "../src/assets/icons/overcast.svg"
+        element.src = "./assets/icons/overcast.svg"
     }
     else if(num == `45` || num == `48`){
-        element.src = "../src/assets/icons/fog.svg"
+        element.src = "./assets/icons/fog.svg"
     }
     else if(num == `51` || num == `53` || num == `55` || num == `56` || num == `57`){
-        element.src = "../src/assets/icons/drizzle.svg"
+        element.src = "./assets/icons/drizzle.svg"
     }
     else if(num == `61` || num == `63` || num == `65` || num == `66` || num == `67`){
-        element.src = "../src/assets/icons/rain.svg"
+        element.src = "./assets/icons/rain.svg"
     }
     else if(num == `71` || num == `73` ||num == `75`){
-        element.src = "../src/assets/icons/snow.svg"
+        element.src = "./assets/icons/snow.svg"
     }
     else if(num == `77`){
-        element.src = "../src/assets/icons/snowflake.svg"
+        element.src = "./assets/icons/snowflake.svg"
     }
     else if(num == `80` || num == `81` ||num == `82`){
-        element.src = "../src/assets/icons/thunderstorms-rain.svg"
+        element.src = "./assets/icons/thunderstorms-rain.svg"
     }
     else if(num == `85` || num == `86`){
-        element.src = "../src/assets/icons/thunderstorms-snow.svg"
+        element.src = "./assets/icons/thunderstorms-snow.svg"
     }
     else if(num == `95` || num == `96` ||num == `99`){
-        element.src = "../src/assets/icons/thunderstorms.svg"
+        element.src = "./assets/icons/thunderstorms.svg"
     }
 }
 

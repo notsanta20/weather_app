@@ -50,11 +50,11 @@ searchBtn.addEventListener(`click`, ()=>{
 scaleBtn.addEventListener(`click`, ()=>{
     if(isCelsius){
         isCelsius = false;
-        scaleBtn.src = "../src/assets/icons/fahrenheit.svg";
+        scaleBtn.src = "./assets/icons/fahrenheit.svg";
     }
     else{
         isCelsius = true;
-        scaleBtn.src = "../src/assets/icons/celsius.svg";
+        scaleBtn.src = "./assets/icons/celsius.svg";
     }
     updateCityTemp(elements,cityName,currentTemp,isCelsius);
 })
