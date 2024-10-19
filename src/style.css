@@ -28,17 +28,6 @@ body {
 
 main{
   background-color: var(--darkGray);
-  height: 500px;
-}
-
-img{
-  width: 100px;
-  height: auto;
-}
-
-.search{
-  width: 40px;
-  height: auto;
 }
 
 .current-date,
@@ -47,32 +36,13 @@ img{
   color: var(--gray);
 }
 
-.container-2 img{
-  width: 200px;
-  height: auto;
-}
-
 .container-3,
 .day-card-container{
   background-color: var(--black);
-}
-
-.container-3 img{
-  width: 75px;
-  height: auto;
-}
-
-.day-card img{
-  width: 50px;
-  height: auto;
-}
-
-.temp-icon{
-  width: 40px;
-  height: auto;
 }
 
 .temp-icon:hover,
 .search:hover{
   cursor: pointer;
 }
+

@@ -558,12 +558,28 @@ video {
   display: flex;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-screen {
   height: 100vh;
 }
 
-.w-1\/2 {
-  width: 50%;
+.w-\[150px\] {
+  width: 150px;
+}
+
+.w-\[35px\] {
+  width: 35px;
+}
+
+.w-\[60px\] {
+  width: 60px;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .flex-1 {
@@ -586,6 +602,10 @@ video {
   justify-content: space-around;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -606,19 +626,24 @@ video {
   padding: 1.25rem;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-8xl {
-  font-size: 6rem;
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-black {
@@ -652,17 +677,6 @@ body {
 
 main{
   background-color: var(--darkGray);
-  height: 500px;
-}
-
-img{
-  width: 100px;
-  height: auto;
-}
-
-.search{
-  width: 40px;
-  height: auto;
 }
 
 .current-date,
@@ -671,32 +685,63 @@ img{
   color: var(--gray);
 }
 
-.container-2 img{
-  width: 200px;
-  height: auto;
-}
-
 .container-3,
 .day-card-container{
   background-color: var(--black);
-}
-
-.container-3 img{
-  width: 75px;
-  height: auto;
-}
-
-.day-card img{
-  width: 50px;
-  height: auto;
-}
-
-.temp-icon{
-  width: 40px;
-  height: auto;
 }
 
 .temp-icon:hover,
 .search:hover{
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .md\:h-\[500px\] {
+    height: 500px;
+  }
+
+  .md\:w-\[200px\] {
+    width: 200px;
+  }
+
+  .md\:w-\[40px\] {
+    width: 40px;
+  }
+
+  .md\:w-\[700px\] {
+    width: 700px;
+  }
+
+  .md\:w-\[75px\] {
+    width: 75px;
+  }
+
+  .md\:justify-around {
+    justify-content: space-around;
+  }
+
+  .md\:gap-0 {
+    gap: 0px;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+

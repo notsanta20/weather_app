@@ -12,7 +12,15 @@ module.exports = {
                 test: /\.(svg|png|jpg|gif)$/,
                 type: "asset/resource",
                 generator: {
-                    filename: "./img/[name].[ext]",
+                    filename: "./assets/img/[name][ext]",
+                },
+
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: "./assets/font/[name][ext]",
                 },
 
             },

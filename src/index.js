@@ -56,5 +56,5 @@ scaleBtn.addEventListener(`click`, ()=>{
 })
 
 updateDate(elements.currentDate);
-getData(`chennai`);
+// getData(`chennai`);
 
