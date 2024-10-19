@@ -3,7 +3,7 @@
   <p align="center">
     Simple Weather app with basic search functionality to display weather conditions.  
     <br />
-    <a href="" target="_blank">Live Demo</a>
+    <a href="https://notsanta20.github.io/weather_app/" target="_blank">Live Demo</a>
   </p>
 </div>
 <br>
